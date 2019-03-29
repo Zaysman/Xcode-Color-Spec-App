@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="H7r-M6-ym1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Color-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Color" id="BYZ-38-t0r" customClass="ColorViewController" customModule="Color_Spec_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Colors Are Fun." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igp-lZ-emh">
+                                <rect key="frame" x="128" y="323" width="118" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="igp-lZ-emh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Ps-xV-Oof"/>
+                            <constraint firstItem="igp-lZ-emh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EqK-dl-hwo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kSj-B8-ROz" appends="YES" id="YPd-Gu-uIN"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="Label" destination="igp-lZ-emh" id="Yhs-Kh-nfe"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kSj-B8-ROz">
+                    <connections>
+                        <action selector="handleTap:" destination="BYZ-38-t0r" id="q8X-5h-cII"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1135.2" y="111.99400299850076"/>
+        </scene>
+        <!--Colors-->
+        <scene sceneID="jWI-A2-Ypk">
+            <objects>
+                <collectionViewController id="6FL-MD-MM6" customClass="ColorsCollectionViewController" customModule="Color_Spec_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="W6u-8k-g1F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="grk-4g-miH">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Oer-EX-ptf">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="ColorDetail" id="X2Y-kQ-Pwf"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="6FL-MD-MM6" id="jOK-Wd-cMB"/>
+                            <outlet property="delegate" destination="6FL-MD-MM6" id="0cY-YK-KpP"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Colors" id="udX-7G-huK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="IVN-nA-Abz">
+                            <connections>
+                                <action selector="createColorPressed:" destination="6FL-MD-MM6" id="5se-FC-W2P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IEo-vk-Thz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="408.80000000000001" y="111.99400299850076"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mwx-XV-Khx">
+            <objects>
+                <navigationController storyboardIdentifier="colorPickerNavigation" id="GfQ-M8-CRX" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="aHc-oz-59Z">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="f29-fz-nvL" kind="relationship" relationship="rootViewController" id="YvT-dv-axP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ZY-PA-It2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-321" y="806"/>
+        </scene>
+        <!--New Color-->
+        <scene sceneID="21d-qO-gUF">
+            <objects>
+                <viewController id="f29-fz-nvL" customClass="ColorPickerViewController" customModule="Color_Spec_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nGF-Km-XPW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aek-I3-JsQ">
+                                <rect key="frame" x="0.0" y="116" width="375" height="421"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="KOf-ka-Y52">
+                                <rect key="frame" x="40" y="537" width="295" height="90"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="19b-6q-TsR">
+                                        <rect key="frame" x="-2" y="0.0" width="299" height="31"/>
+                                        <color key="minimumTrackTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="updateColor:" destination="f29-fz-nvL" eventType="valueChanged" id="GgP-Pr-Ejf"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="EaP-z0-lRK">
+                                        <rect key="frame" x="-2" y="30" width="299" height="31"/>
+                                        <color key="minimumTrackTintColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="updateColor:" destination="f29-fz-nvL" eventType="valueChanged" id="kNh-da-rxq"/>
+                                        </connections>
+                                    </slider>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="256" translatesAutoresizingMaskIntoConstraints="NO" id="xel-35-S1E">
+                                        <rect key="frame" x="-2" y="60" width="299" height="31"/>
+                                        <connections>
+                                            <action selector="updateColor:" destination="f29-fz-nvL" eventType="valueChanged" id="vAH-ie-qMJ"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hN7-y9-UB9" firstAttribute="bottom" secondItem="KOf-ka-Y52" secondAttribute="bottom" constant="40" id="54L-0m-nAI"/>
+                            <constraint firstItem="KOf-ka-Y52" firstAttribute="leading" secondItem="hN7-y9-UB9" secondAttribute="leading" constant="40" id="KRM-GN-PcJ"/>
+                            <constraint firstItem="hN7-y9-UB9" firstAttribute="bottom" secondItem="KOf-ka-Y52" secondAttribute="bottom" constant="40" id="Li8-pp-urC"/>
+                            <constraint firstItem="aek-I3-JsQ" firstAttribute="top" secondItem="hN7-y9-UB9" secondAttribute="top" id="h4R-ig-KmR"/>
+                            <constraint firstItem="KOf-ka-Y52" firstAttribute="top" secondItem="aek-I3-JsQ" secondAttribute="bottom" id="mSf-TF-kUf"/>
+                            <constraint firstItem="hN7-y9-UB9" firstAttribute="trailing" secondItem="aek-I3-JsQ" secondAttribute="trailing" id="oq8-y4-h67"/>
+                            <constraint firstItem="hN7-y9-UB9" firstAttribute="trailing" secondItem="KOf-ka-Y52" secondAttribute="trailing" constant="40" id="ukU-L0-18M"/>
+                            <constraint firstItem="aek-I3-JsQ" firstAttribute="leading" secondItem="hN7-y9-UB9" secondAttribute="leading" id="wfN-kS-KdI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hN7-y9-UB9"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Color" id="VEd-TI-rA3">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="c4g-hB-eSW">
+                            <connections>
+                                <action selector="cancelPressed:" destination="f29-fz-nvL" id="jZT-op-4jI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="kY6-cE-RyD">
+                            <connections>
+                                <action selector="savePressed:" destination="f29-fz-nvL" id="w2o-CR-zPo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="blueSlider" destination="xel-35-S1E" id="8jl-Am-dm0"/>
+                        <outlet property="colorview" destination="aek-I3-JsQ" id="0nQ-hh-GDH"/>
+                        <outlet property="greenSlider" destination="EaP-z0-lRK" id="Vxa-k6-UTU"/>
+                        <outlet property="redSlider" destination="19b-6q-TsR" id="Cln-wR-97M"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wFq-Sy-jVl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="810"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="65X-Nx-PKj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="H7r-M6-ym1" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="sI9-HV-p09">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6FL-MD-MM6" kind="relationship" relationship="rootViewController" id="uwR-fB-ZyP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l6h-9C-vNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-313" y="112"/>
+        </scene>
+    </scenes>
+</document>
